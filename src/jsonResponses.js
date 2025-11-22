@@ -9,8 +9,12 @@ const respondJSON = (req, res, status, object) => {
     if (req.method !== 'HEAD' && status !== 204) {
         res.write(content);
     };
-    
+
     res.end();
+};
+
+const getUsers = (req, res) => {
+
 };
 
 const notFound = (req, res) => {
