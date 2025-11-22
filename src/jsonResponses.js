@@ -34,6 +34,10 @@ const addUser = (req, res) => {
         responseJSON.id = 'missingParams';
         return respondJSON(req, res, 400, responseJSON);
     };
+
+    let status = 204;
+
+    return respondJSON(req, res, status, {});
 };
 
 const notReal = (req, res) => {
