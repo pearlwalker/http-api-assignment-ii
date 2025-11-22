@@ -8,7 +8,7 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/bundle.js': htmlHandler.getBundle,
-    notFound: jsonHandler.notReal,
+    notReal: jsonHandler.notReal,
 };
 
 const onRequest = (req, res) => {
