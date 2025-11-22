@@ -6,4 +6,8 @@ module.exports = {
     watchOptions: {
         aggregateTimeout: 200,
     },
+    output: {
+        path: path.resolve(__dirname, 'hosted'),
+        filename: 'bundle.js',
+    }
 };
