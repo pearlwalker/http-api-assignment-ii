@@ -4,6 +4,7 @@
   "description": "A simple Node.js-based HTTP API using GET, HEAD, and POST methods.",
   "main": "./src/server.js",
   "scripts": {
+    "start": "node ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
