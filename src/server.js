@@ -8,7 +8,7 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/bundle.js': htmlHandler.getBundle,
-    notFound: jsonHandler.notFound,
+    notFound: jsonHandler.notReal,
 };
 
 const onRequest = (req, res) => {
@@ -18,7 +18,7 @@ const onRequest = (req, res) => {
     if(urlStruct[parsedUrl.pathname]) {
         urlStruct[parsedUrl.pathname](req, res);
     } else {
-        urlStruct.notFound(req, res);
+        urlStruct.notReal(req, res);
     };
 };
 

@@ -17,15 +17,15 @@ const getUsers = (req, res) => {
 
 };
 
-const notFound = (req, res) => {
+const notReal = (req, res) => {
     const responseJSON = {
         message: 'The page you are looking for was NOT found.',
-        id: 'notFound',
+        id: 'notReal',
     };
 
     respondJSON(req, res, 404, responseJSON);
 };
 
 module.exports = {
-    notFound,
+    notReal,
 };
