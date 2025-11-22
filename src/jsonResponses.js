@@ -5,6 +5,11 @@ const respondJSON = (req, res, status, object) => {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(content, 'utf8'),
     });
+
+    if (req.method !== 'HEAD' && status !== 204) {
+        res.write(content);
+    };
+    
     res.end();
 };
 
