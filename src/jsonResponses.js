@@ -1,3 +1,5 @@
+const users = {};
+
 const respondJSON = (req, res, status, object) => {
     const content = JSON.stringify(object);
 
@@ -14,7 +16,11 @@ const respondJSON = (req, res, status, object) => {
 };
 
 const getUsers = (req, res) => {
+    const responseJSON = {
+        users,
+    };
 
+    respondJSON(req, res, 200, responseJSON);
 };
 
 const addUser = (req, res) => {
