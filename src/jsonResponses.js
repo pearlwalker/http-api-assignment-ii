@@ -24,7 +24,9 @@ const getUsers = (req, res) => {
 };
 
 const addUser = (req, res) => {
-
+    const responseJSON = {
+        message: 'Name and age are both required.',
+    };
 };
 
 const notReal = (req, res) => {
