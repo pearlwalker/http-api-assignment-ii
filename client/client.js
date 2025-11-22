@@ -6,6 +6,13 @@ const sendRequest = async (form) => {
     const url = form.getAttribute('action');
     const method = form.getAttribute('method');
     
+    const options = {
+        method: method,
+        headers: {
+            'Accept': 'application/json',
+        },
+    };
+
     let reqBody;
 
     if( method === 'POST' || method === 'post') {
