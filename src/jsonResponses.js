@@ -10,3 +10,7 @@ const notFound = (req, res) => {
 
     respondJSON(req, res, 404, responseJSON);
 };
+
+module.exports = {
+    notFound,
+};
