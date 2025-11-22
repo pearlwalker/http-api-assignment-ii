@@ -1,0 +1,19 @@
+{
+  "name": "http-api-assignment-ii",
+  "version": "1.0.0",
+  "description": "A simple Node.js-based HTTP API using GET, HEAD, and POST methods.",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pearlwalker/http-api-assignment-ii.git"
+  },
+  "author": "Pearl Walker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pearlwalker/http-api-assignment-ii/issues"
+  },
+  "homepage": "https://github.com/pearlwalker/http-api-assignment-ii#readme"
+}
