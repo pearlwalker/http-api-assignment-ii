@@ -30,13 +30,13 @@ const addUser = (req, res) => {
 
     const { name, age } = req.body;
 
-    if(!name || !age) {
+    if (!name || !age) {
         responseJSON.id = 'missingParams';
         return respondJSON(req, res, 400, responseJSON);
     };
 
     let status = 204;
-    if(!users[name]) {
+    if (!users[name]) {
         status = 201;
         users[name] = {
             name: name,
