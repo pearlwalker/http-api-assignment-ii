@@ -45,6 +45,12 @@ const addUser = (req, res) => {
 
     users[name].age = age;
 
+    if(status === 201) {
+        responseJSON.message = 'Created Successfully!';
+        responseJSON.id = 'Created';
+        return respondJSON(req, res, status, responseJSON);
+    };
+
     return respondJSON(req, res, status, {});
 };
 
