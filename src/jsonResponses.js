@@ -32,4 +32,6 @@ const notReal = (req, res) => {
 
 module.exports = {
     notReal,
+    getUsers,
+    addUser,
 };
