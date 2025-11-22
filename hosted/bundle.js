@@ -15,7 +15,7 @@
   \**************************/
 /***/ (() => {
 
-eval("{\n\n//# sourceURL=webpack://http-api-assignment-ii/./client/client.js?\n}");
+eval("{const handleResponse = async (res) => {\r\n    \r\n};\r\n\r\nconst sendRequest = async (form) => {\r\n\r\n};\r\n\r\nconst init = () => {\r\n\r\n};\r\n\r\nwindow.onload = init;\n\n//# sourceURL=webpack://http-api-assignment-ii/./client/client.js?\n}");
 
 /***/ })
 
