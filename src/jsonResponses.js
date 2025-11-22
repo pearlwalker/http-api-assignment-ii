@@ -27,6 +27,13 @@ const addUser = (req, res) => {
     const responseJSON = {
         message: 'Name and age are both required.',
     };
+
+    const { name, age } = req.body;
+
+    if(!name || !age) {
+        responseJSON.id = 'missingParams';
+        return respondJSON(req, res, 400, responseJSON);
+    };
 };
 
 const notReal = (req, res) => {
