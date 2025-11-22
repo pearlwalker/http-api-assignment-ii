@@ -5,28 +5,28 @@ const css = fs.readFileSync(`${__dirname}/../hosted/style.css`);
 const bundle = fs.readFileSync(`${__dirname}/../hosted/bundle.js`);
 
 const serveFile = (res, file, contentType) => {
-    res.writeHead(200, {
-        'Content-Type': contentType,
-        'Content-Length': Buffer.byteLength(file, 'utf8'),
-    });
-    res.write(file);
-    res.end();
+  res.writeHead(200, {
+    'Content-Type': contentType,
+    'Content-Length': Buffer.byteLength(file, 'utf8'),
+  });
+  res.write(file);
+  res.end();
 };
 
 const getIndex = (req, res) => {
-    serveFile(res, index, 'text/html');
+  serveFile(res, index, 'text/html');
 };
 
 const getCSS = (req, res) => {
-    serveFile(res, css, 'text/css');
+  serveFile(res, css, 'text/css');
 };
 
 const getBundle = (req, res) => {
-    serveFile(res, bundle, 'application/javascript');
+  serveFile(res, bundle, 'application/javascript');
 };
 
 module.exports = {
-    getIndex,
-    getCSS,
-    getBundle,
+  getIndex,
+  getCSS,
+  getBundle,
 };
