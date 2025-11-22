@@ -36,6 +36,12 @@ const addUser = (req, res) => {
     };
 
     let status = 204;
+    if(!users[name]) {
+        status = 201;
+        users[name] = {
+            name: name,
+        };
+    };
 
     return respondJSON(req, res, status, {});
 };
