@@ -23,6 +23,9 @@ const sendRequest = async (form) => {
         options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
         options.body = reqBody;
     };
+    
+    const fetchResponse = await fetch(url, options);
+    handleResponse(fetchResponse);
 };
 
 const init = () => {
