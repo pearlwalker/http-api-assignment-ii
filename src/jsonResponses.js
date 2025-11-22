@@ -1,5 +1,11 @@
 const respondJSON = (req, res, status, object) => {
+    const content = JSON.stringify(object);
 
+    res.writeHead(status, {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(content, 'utf8'),
+    });
+    res.end();
 };
 
 const notFound = (req, res) => {
