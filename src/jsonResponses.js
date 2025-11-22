@@ -17,6 +17,10 @@ const getUsers = (req, res) => {
 
 };
 
+const addUser = (req, res) => {
+
+};
+
 const notReal = (req, res) => {
     const responseJSON = {
         message: 'The page you are looking for was NOT found.',
