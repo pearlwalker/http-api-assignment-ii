@@ -3,7 +3,8 @@ const handleResponse = async (res) => {
 };
 
 const sendRequest = async (form) => {
-
+    const url = form.getAttribute('action');
+    const method = form.getAttribute('method');
 };
 
 const init = () => {
