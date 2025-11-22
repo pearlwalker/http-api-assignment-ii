@@ -11,3 +11,7 @@ const urlStruct = {
 const onRequest = (req, res) => {
 
 };
+
+http.createServer(onRequest).listen(port, () => {
+
+});
