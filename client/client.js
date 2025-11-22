@@ -20,6 +20,8 @@ const sendRequest = async (form) => {
         const age = form.querySelector('#ageField').value;
 
         reqBody = `name=${name}&age=${age}`;
+        options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+        options.body = reqBody;
     };
 };
 
