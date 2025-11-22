@@ -19,3 +19,9 @@ const getCSS = (req, res) => {
 const getBundle = (req, res) => {
 
 };
+
+module.exports = {
+    getIndex,
+    getCSS,
+    getBundle
+};
