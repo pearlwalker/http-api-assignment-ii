@@ -43,6 +43,8 @@ const addUser = (req, res) => {
         };
     };
 
+    users[name].age = age;
+
     return respondJSON(req, res, status, {});
 };
 
