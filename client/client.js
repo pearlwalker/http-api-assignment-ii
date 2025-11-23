@@ -37,6 +37,12 @@ const init = () => {
         sendRequest(addForm);
         return false;
     };
+
+    const getUsers = (e) => {
+        e.preventDefault();
+        sendRequest(getForm);
+        return false;
+    };
 };
 
 window.onload = init;
