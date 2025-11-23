@@ -14,7 +14,13 @@ const urlStruct = {
 };
 
 const parseBody = (req, res) => {
+  const body = [];
 
+  req.on('error', (err) =>{
+    console.dir(err);
+    res.status = 400;
+    res.end();
+  });
 };
 
 const onRequest = (req, res) => {
