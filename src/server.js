@@ -1,4 +1,5 @@
 const http = require('http');
+const query = require('querystring');
 const htmlHandler = require('./htmlResponses.js');
 const jsonHandler = require('./jsonResponses.js');
 
@@ -13,7 +14,7 @@ const urlStruct = {
   notReal: jsonHandler.notReal,
 };
 
-const parseBody = (req, res) => {
+const parseBody = (req, res, handler) => {
   const body = [];
 
   req.on('error', (err) =>{
@@ -24,6 +25,12 @@ const parseBody = (req, res) => {
 
   req.on('data', (chunk) => {
     body.push(chunk);
+  });
+
+  req.on('end', () => {
+    const bodyString = Buffer.concat(body).toString();
+    req.body = query.parse(bodyString);
+    handler(req, res);
   });
 };
 
