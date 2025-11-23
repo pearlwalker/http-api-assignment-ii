@@ -43,6 +43,9 @@ const init = () => {
         sendRequest(getForm);
         return false;
     };
+
+    addForm.addEventListener('submit', addUser);
+    getForm.addEventListener('submit', getUsers);
 };
 
 window.onload = init;
