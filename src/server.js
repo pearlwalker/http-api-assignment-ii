@@ -37,9 +37,13 @@ const parseBody = (req, res, handler) => {
 const onRequest = (req, res) => {
   const protocol = req.connection.encrypted ? 'https' : 'http';
   const parsedUrl = new URL(req.url, `${protocol}://${req.headers.host}`);
-  console.log(req.method)
   if (urlStruct[parsedUrl.pathname]) {
-    urlStruct[parsedUrl.pathname](req, res);
+    const handler = urlStruct[parsedUrl.pathname];
+    if(req.method === 'POST' || req.method === 'post'){
+      parseBody(req, res, handler);
+    } else {
+      handler(req, res);
+    };
   } else {
     urlStruct.notReal(req, res);
   }
