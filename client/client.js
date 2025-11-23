@@ -26,7 +26,7 @@ const handleResponse = async (res) => {
     if (resObj.message) {
         content.innerHTML += `<p>${resObj.message}<p>`;
     } else {
-        content.innerHTML += `<i>no response message</i>`
+        content.innerHTML += `<p>[no response message]</p>`
     };
 
 };
