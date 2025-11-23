@@ -1,6 +1,6 @@
 const handleResponse = async (res) => {
     const content = document.getElementById('content');
-    switch(res.status) {
+    switch (res.status) {
         case 200:
             content.innerHTML = `<b>Success</b>`;
             break;
@@ -22,13 +22,19 @@ const handleResponse = async (res) => {
     };
 
     const resObj = await res.json();
-    content.innerHTML += `<p>${resObj.message}<p>`;
+
+    if (resObj.message) {
+        content.innerHTML += `<p>${resObj.message}<p>`;
+    } else {
+        content.innerHTML += `<i>no response message</i>`
+    };
+
 };
 
 const sendRequest = async (form) => {
     const url = form.getAttribute('action');
     const method = form.getAttribute('method');
-    
+
     const options = {
         method: method,
         headers: {
@@ -38,7 +44,7 @@ const sendRequest = async (form) => {
 
     let reqBody;
 
-    if( method === 'POST' || method === 'post') {
+    if (method === 'POST' || method === 'post') {
         const name = form.querySelector('#nameField').value;
         const age = form.querySelector('#ageField').value;
 
@@ -46,7 +52,7 @@ const sendRequest = async (form) => {
         options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
         options.body = reqBody;
     };
-    
+
     const fetchResponse = await fetch(url, options);
     handleResponse(fetchResponse);
 };
