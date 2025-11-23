@@ -31,6 +31,12 @@ const sendRequest = async (form) => {
 const init = () => {
     const addForm = document.querySelector('#form-addUser');
     const getForm = document.querySelector('form-getUsers');
+
+    const addUser = (e) => {
+        e.preventDefault();
+        sendRequest(addForm);
+        return false;
+    };
 };
 
 window.onload = init;
