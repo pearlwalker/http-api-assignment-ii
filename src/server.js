@@ -21,6 +21,10 @@ const parseBody = (req, res) => {
     res.status = 400;
     res.end();
   });
+
+  req.on('data', (chunk) => {
+    body.push(chunk);
+  });
 };
 
 const onRequest = (req, res) => {
