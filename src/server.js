@@ -13,10 +13,14 @@ const urlStruct = {
   notReal: jsonHandler.notReal,
 };
 
+const parseBody = (req, res) => {
+
+};
+
 const onRequest = (req, res) => {
   const protocol = req.connection.encrypted ? 'https' : 'http';
   const parsedUrl = new URL(req.url, `${protocol}://${req.headers.host}`);
-
+  console.log(req.method)
   if (urlStruct[parsedUrl.pathname]) {
     urlStruct[parsedUrl.pathname](req, res);
   } else {
