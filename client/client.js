@@ -1,5 +1,20 @@
 const handleResponse = async (res) => {
     const content = document.getElementById('content');
+    switch(res.status) {
+        case 200:
+            break;
+        case 201:
+            break;
+        case 204:
+            break;
+        case 400:
+            break;
+        case 404:
+            break;
+        default:
+            content.innerHTML = `<p>Status code not implemented by client</p>`;
+            break;
+    };
 
     const resObj = await res.json();
     content.innerHTML += `<p>${resObj.message}<p>`;
