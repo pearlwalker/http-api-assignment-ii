@@ -17,7 +17,7 @@ const urlStruct = {
 const parseBody = (req, res, handler) => {
   const body = [];
 
-  req.on('error', (err) =>{
+  req.on('error', (err) => {
     console.dir(err);
     res.status = 400;
     res.end();
@@ -39,11 +39,11 @@ const onRequest = (req, res) => {
   const parsedUrl = new URL(req.url, `${protocol}://${req.headers.host}`);
   if (urlStruct[parsedUrl.pathname]) {
     const handler = urlStruct[parsedUrl.pathname];
-    if(req.method === 'POST' || req.method === 'post'){
+    if (req.method === 'POST' || req.method === 'post') {
       parseBody(req, res, handler);
     } else {
       handler(req, res);
-    };
+    }
   } else {
     urlStruct.notReal(req, res);
   }
