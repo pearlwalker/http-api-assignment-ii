@@ -1,4 +1,4 @@
-const handleResponse = async (res) => {
+const handleResponse = async (res, hasBody) => {
     const content = document.getElementById('content');
     switch (res.status) {
         case 200:
@@ -20,21 +20,21 @@ const handleResponse = async (res) => {
             content.innerHTML = `<p>Status code not implemented by client</p>`;
             break;
     };
-
-    const resObj = await res.json();
-    if (resObj.message) {
-        content.innerHTML += `<p>${resObj.message}<p>`;
-    } else if (resObj.users){
-        let userList = JSON.stringify(resObj.users)
-        content.innerHTML += `<p>${userList}</p>`;
-    } else {
-        content.innerHTML += `<p>[no response message]</p>`
-    };
-
+    if (hasBody && res.status !== 204) {
+        const resObj = await res.json();
+        console.log(resObj)
+        if (resObj.message) {
+            content.innerHTML += `<p>${resObj.message}<p>`;
+        } else if (resObj.users) {
+            let userList = JSON.stringify(resObj.users)
+            content.innerHTML += `<p>${userList}</p>`;
+        }
+    } 
 };
 
 const sendRequest = async (form, method, url = undefined) => {
-    if(!url) {
+    let hasBody = true;
+    if (!url) {
         url = form.getAttribute('action');
     };
     const options = {
@@ -54,9 +54,14 @@ const sendRequest = async (form, method, url = undefined) => {
         options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
         options.body = reqBody;
     };
+    if (method === 'HEAD' || method === 'head') {
+        hasBody = false;
+    } else {
+        hasBody = true
+    };
 
     const fetchResponse = await fetch(url, options);
-    handleResponse(fetchResponse);
+    handleResponse(fetchResponse, hasBody);
 };
 
 const init = () => {
