@@ -33,7 +33,7 @@ const addUser = (req, res) => {
   if (!name || !age) {
     responseJSON.id = 'missingParams';
     return respondJSON(req, res, 400, responseJSON);
-  };
+  }
 
   let status = 204;
   if (!users[name]) {
@@ -41,7 +41,7 @@ const addUser = (req, res) => {
     users[name] = {
       name,
     };
-  };
+  }
 
   users[name].age = age;
 
@@ -49,7 +49,7 @@ const addUser = (req, res) => {
     responseJSON.message = 'Created Successfully!';
     responseJSON.id = 'Created';
     return respondJSON(req, res, status, responseJSON);
-  };
+  }
 
   return respondJSON(req, res, status, {});
 };
