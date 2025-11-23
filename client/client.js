@@ -1,5 +1,8 @@
 const handleResponse = async (res) => {
+    const content = document.getElementById('content');
 
+    const resObj = await res.json();
+    content.innerHTML += `<p>${resObj.message}<p>`;
 };
 
 const sendRequest = async (form) => {
