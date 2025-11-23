@@ -21,8 +21,11 @@ const handleResponse = async (res) => {
             break;
     };
 
-    const resObj = await res.json();
-
+    const resObj = await res.json()
+    .catch(err => {
+        console.log(err)
+        return null;
+    });
     if (resObj.message) {
         content.innerHTML += `<p>${resObj.message}<p>`;
     } else if (resObj.users){
