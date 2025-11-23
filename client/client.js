@@ -31,8 +31,7 @@ const handleResponse = async (res) => {
 
 };
 
-const sendRequest = async (form, method) => {
-    const url = form.getAttribute('action');
+const sendRequest = async (form, method, url) => {
 
     const options = {
         method: method,
@@ -61,15 +60,17 @@ const init = () => {
     const getForm = document.querySelector('#form-getUsers');
     const addUser = (e) => {
         const method = addForm.getAttribute('method');
+        const url = form.getAttribute('action');
         e.preventDefault();
-        sendRequest(addForm, method);
+        sendRequest(addForm, method, url);
         return false;
     };
 
     const getUsers = (e) => {
         const method = document.getElementById('methodSelect').value;
+        const url = document.getElementById('urlField').value
         e.preventDefault();
-        sendRequest(getForm, method);
+        sendRequest(getForm, method, url);
         return false;
     };
 
