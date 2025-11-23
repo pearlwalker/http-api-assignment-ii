@@ -31,8 +31,10 @@ const handleResponse = async (res) => {
 
 };
 
-const sendRequest = async (form, method, url) => {
-
+const sendRequest = async (form, method, url = undefined) => {
+    if(!url) {
+        url = form.getAttribute('action');
+    };
     const options = {
         method: method,
         headers: {
@@ -60,9 +62,8 @@ const init = () => {
     const getForm = document.querySelector('#form-getUsers');
     const addUser = (e) => {
         const method = addForm.getAttribute('method');
-        const url = form.getAttribute('action');
         e.preventDefault();
-        sendRequest(addForm, method, url);
+        sendRequest(addForm, method);
         return false;
     };
 
